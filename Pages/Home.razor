@@ -1,0 +1,79 @@
+﻿@page "/"
+
+<PageTitle>Todo-applikajson</PageTitle>
+
+<h1>TODO-applikasjon</h1>
+
+<CascadingValue Value="this">
+    <button @onclick="ShowTodos">Vis Todos</button>
+    <button @onclick="ShowCompletedTodos">Vis fullførte todos</button>
+
+    <DynamicComponent Type="@currentComponent" Parameters="@parameters" />
+</CascadingValue>
+
+@code {
+    private Type currentComponent = typeof(Todos);
+    public List<TodoItem> activeTodos = new();
+
+    private Dictionary<string, object>? parameters;
+    public List<TodoItem> completedTodos = new();
+
+    @* Make sure to bind parameters to the first component *@
+    protected override void OnInitialized()
+    {
+        ShowTodos();
+    }
+    private void ShowTodos()
+    {
+        currentComponent = typeof(Todos);
+        parameters = new Dictionary<string, object>
+{
+{ "OnAdd", EventCallback.Factory.Create<TodoItem>(this, AddTodo) },
+{ "OnSetComplete", EventCallback.Factory.Create<TodoItem>(this, SetComplete) },
+{ "OnRemove", EventCallback.Factory.Create<TodoItem>(this, RemoveTodo) }
+};
+    }
+
+
+    private void ShowCompletedTodos()
+    {
+        currentComponent = typeof(CompletedTodos);
+        parameters = new Dictionary<string, object>
+{
+{ "OnSetIncomplete", EventCallback.Factory.Create<TodoItem>(this, SetIncomplete) }
+};
+    }
+
+    @* Complete task *@
+    private void SetComplete(TodoItem todo)
+    {
+        todo.IsCompleted = true;
+        completedTodos.Add(todo);
+        activeTodos.Remove(todo);
+    }
+
+    @* Add todo to todo app *@
+    private void AddTodo(TodoItem newTodo)
+    {
+        activeTodos.Add(newTodo);
+    }
+
+    private void RemoveTodo(TodoItem todo)
+    {
+        activeTodos.Remove(todo);
+    }
+
+    @* Change from complete to incomplete *@
+    private void SetIncomplete(TodoItem todo)
+    {
+        completedTodos.Remove(todo);
+        todo.IsCompleted = false;
+        AddTodo(todo);
+    }
+
+    public class TodoItem
+    {
+        public string Title { get; set; } = string.Empty;
+        public bool IsCompleted { get; set; } = false;
+    }
+}

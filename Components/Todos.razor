@@ -1,0 +1,79 @@
+<div class="form mt-5">
+    <label for="gjøremål">Nytt gjøremål</label>
+    <input @bind-value="newTodo" @bind-value:event="oninput" type="text" id="gjøremål" placeholder="Nytt gjøremål"
+        @onkeypress="HandleEnter" />
+    <button @onclick="AddTodo">Legg til gjøremål</button>
+</div>
+
+<div>
+    <table class="content-table">
+        @if (ParentPage.activeTodos.Count > 0)
+        {
+            <thead>
+                <tr>
+                    <th>Overskrift</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+            </thead>
+        }
+        <tbody>
+            @foreach (var todo in ParentPage.activeTodos)
+            {
+                <tr>
+                    <td>
+                        @todo.Title
+                    </td>
+                    <td>@(todo.IsCompleted ? "Fullført" : "Ikke utført")</td>
+                    <td>
+                        <button @onclick="() => CompleteTodo(todo)">
+                            @(todo.IsCompleted ? "" : "Merk som fullført")
+                        </button>
+                    </td>
+                    <td><button class="button-delete" @onclick="() => RemoveTodo(todo)">Slett</button></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@code {
+    [CascadingParameter]
+    public required Home ParentPage { get; set; }
+
+    [Parameter]
+    public EventCallback<Home.TodoItem> OnAdd { get; set; }
+
+    [Parameter]
+    public EventCallback<Home.TodoItem> OnSetComplete { get; set; }
+    [Parameter]
+
+    public EventCallback<Home.TodoItem> OnRemove { get; set; }
+
+    private string newTodo = "";
+    private async Task AddTodo()
+    {
+        if (!string.IsNullOrWhiteSpace(newTodo))
+        {
+            await OnAdd.InvokeAsync(new Home.TodoItem { Title = newTodo, IsCompleted = false });
+            newTodo = "";
+        }
+    }
+
+    private async Task HandleEnter(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            await AddTodo();
+        }
+    }
+
+    private async Task CompleteTodo(Home.TodoItem todo)
+    {
+        await OnSetComplete.InvokeAsync(todo);
+    }
+    private async Task RemoveTodo(Home.TodoItem todo)
+    {
+        await OnRemove.InvokeAsync(todo);
+    }
+}

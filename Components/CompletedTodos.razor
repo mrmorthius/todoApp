@@ -1,0 +1,42 @@
+<p>Fullførte aktiviteter</p>
+
+<div class="completed-tasks">
+    @if (ParentPage.completedTodos.Count() > 0)
+    {
+        <h4>Fullførte gjøremål</h4>
+        <table class="content-table">
+
+        <thead>
+            <tr>
+                <th scope="col">Tittel</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @* Task requires us to use LINQ-Where to show only completed tasks. Even though the list only has completed
+            tasks *@
+            @foreach (var todo in ParentPage.completedTodos.Where(todo => todo.IsCompleted))
+                {
+                    <tr>
+                        <td>@todo.Title</td>
+                        <td><button @onclick="() => RemoveTodo(todo)">Angre - Sett som ikke fullført</button></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+
+@code {
+    [CascadingParameter]
+    public required Home ParentPage { get; set; }
+
+    [Parameter]
+    public EventCallback<Home.TodoItem> OnSetIncomplete { get; set; }
+
+    private async Task RemoveTodo(Home.TodoItem todo)
+    {
+        await OnSetIncomplete.InvokeAsync(todo);
+    }
+
+}
