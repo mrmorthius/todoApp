@@ -1029,3 +1029,4 @@
 /Users/morten/Documents/Programmering/Skole/Emne 6/Arb2/obj/Debug/net8.0/refint/Arb2.dll
 /Users/morten/Documents/Programmering/Skole/Emne 6/Arb2/obj/Debug/net8.0/Arb2.pdb
 /Users/morten/Documents/Programmering/Skole/Emne 6/Arb2/obj/Debug/net8.0/ref/Arb2.dll
+/Users/morten/Documents/Programmering/Skole/Emne 6/Arb2/obj/Debug/net8.0/Arb2.sourcelink.json

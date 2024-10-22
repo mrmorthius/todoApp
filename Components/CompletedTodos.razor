@@ -1,10 +1,8 @@
-<p>Fullførte aktiviteter</p>
-
 <div class="completed-tasks">
     @if (ParentPage.completedTodos.Count() > 0)
     {
-        <h4>Fullførte gjøremål</h4>
-        <table class="content-table">
+                    <h4>Fullførte gjøremål</h4>
+                    <table class="content-table">
 
         <thead>
             <tr>
@@ -13,17 +11,20 @@
         </thead>
 
         <tbody>
-            @* Task requires us to use LINQ-Where to show only completed tasks. Even though the list only has completed
-            tasks *@
-            @foreach (var todo in ParentPage.completedTodos.Where(todo => todo.IsCompleted))
+            @foreach (var todo in ParentPage.completedTodos)
                 {
-                    <tr>
-                        <td>@todo.Title</td>
-                        <td><button @onclick="() => RemoveTodo(todo)">Angre - Sett som ikke fullført</button></td>
-                    </tr>
+                                            <tr>
+                                                <td>@todo.Title</td>
+                                                <td><button class="button-uncomplete" @onclick="() => RemoveTodo(todo)">Angre - Sett som ikke
+                                                        fullført</button></td>
+                                            </tr>
                 }
-            </tbody>
-        </table>
+                        </tbody>
+                    </table>
+    }
+    else
+    {
+                    <h4>Ingen fullførte gjøremål</h4>
     }
 </div>
 

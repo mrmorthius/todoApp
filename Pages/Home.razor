@@ -5,8 +5,8 @@
 <h1>TODO-applikasjon</h1>
 
 <CascadingValue Value="this">
-    <button @onclick="ShowTodos">Vis Todos</button>
-    <button @onclick="ShowCompletedTodos">Vis fullførte todos</button>
+    <button class="buttonComponent" @onclick="ShowTodos">Vis Todos</button>
+    <button class="buttonComponent" @onclick="ShowCompletedTodos">Vis fullførte todos</button>
 
     <DynamicComponent Type="@currentComponent" Parameters="@parameters" />
 </CascadingValue>
