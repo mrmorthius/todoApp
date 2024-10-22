@@ -817,7 +817,6 @@
 /Users/morten/Documents/Programmering/Skole/Emne 6/Arb2/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.Arb2.props
 /Users/morten/Documents/Programmering/Skole/Emne 6/Arb2/obj/Debug/net8.0/staticwebassets.pack.json
 /Users/morten/Documents/Programmering/Skole/Emne 6/Arb2/obj/Debug/net8.0/scopedcss/Layout/MainLayout.razor.rz.scp.css
-/Users/morten/Documents/Programmering/Skole/Emne 6/Arb2/obj/Debug/net8.0/scopedcss/Layout/NavMenu.razor.rz.scp.css
 /Users/morten/Documents/Programmering/Skole/Emne 6/Arb2/obj/Debug/net8.0/scopedcss/bundle/Arb2.styles.css
 /Users/morten/Documents/Programmering/Skole/Emne 6/Arb2/obj/Debug/net8.0/scopedcss/projectbundle/Arb2.bundle.scp.css
 /Users/morten/Documents/Programmering/Skole/Emne 6/Arb2/obj/Debug/net8.0/compressed/u1v51gsg48.gz

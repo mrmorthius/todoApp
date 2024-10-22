@@ -1,41 +1,75 @@
-<div class="form mt-5">
-    <label for="gjøremål">Nytt gjøremål</label>
-    <input @bind-value="newTodo" @bind-value:event="oninput" type="text" id="gjøremål" placeholder="Nytt gjøremål"
-        @onkeypress="HandleEnter" />
-    <button @onclick="AddTodo">Legg til gjøremål</button>
+<div class="container mb-4">
+    <div class="row d-flex justify-content-center">
+        <div class="col-4">
+            <div class="form mt-5">
+                <label for="gjoremal" class="form-label text-center">Nytt gjøremål</label>
+                <input @bind-value="newTodo" @bind-value:event="oninput" type="text" id="gjoremal"
+                    placeholder="Nytt gjøremål" @onkeypress="HandleEnter" />
+                <button @onclick="AddTodo">Legg til gjøremål</button>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div>
-    <table class="content-table">
-        @if (ParentPage.activeTodos.Count > 0)
-        {
-            <thead>
-                <tr>
-                    <th>Overskrift</th>
-                    <th>Status</th>
-                    <th></th>
-                </tr>
-            </thead>
-        }
-        <tbody>
-            @foreach (var todo in ParentPage.activeTodos)
-            {
-                <tr>
-                    <td>
-                        @todo.Title
-                    </td>
-                    <td>@(todo.IsCompleted ? "Fullført" : "Ikke utført")</td>
-                    <td>
-                        <button class="button-complete" @onclick="() => CompleteTodo(todo)">
-                            @(todo.IsCompleted ? "" : "Merk som fullført")
-                        </button>
-                    </td>
-                    <td><button class="button-delete" @onclick="() => RemoveTodo(todo)">Slett</button></td>
-                </tr>
-            }
-        </tbody>
-    </table>
+<div class="container border shadow rounded-2">
+    @if (ParentPage.activeTodos.Count > 0)
+    {
+        <div class="row border-bottom py-2 d-flex justify-content-space-between fw-bold">
+            <div class="col-5">
+                Overskrift
+            </div>
+            <div class="col-4">
+                Status
+            </div>
+            <div class="col-3">
+            </div>
+        </div>
+    }
+    @foreach (var todo in ParentPage.activeTodos)
+    {
+        <div class="row py-2 border-bottom shadow-bottom align-items-center ">
+            <div class="col-5 text-break word-wrap">
+                @todo.Title
+            </div>
+
+            <div class="col-2 col-md-4">
+                @(todo.IsCompleted ? "Fullført" : "Ikke utført")
+            </div>
+
+            <div class="col-5 col-md-3 gap-md-2 d-flex justify-content-center">
+                <button class="button-complete" @onclick="() => CompleteTodo(todo)">
+                    @(todo.IsCompleted ? "" : "Fullfør")
+                </button>
+
+                <button type="button" class="button-delete" data-bs-toggle="modal" data-bs-target="#warningModal"
+                    @onclick="() => SetTodoToRemove(todo)">Slett</button>
+            </div>
+        </div>
+    }
 </div>
+
+<div class="modal fade" id="warningModal" tabindex="-1" aria-labelledby="warningModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="warningModalLabel">Slett todo fra listen</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @if (confirmedTodo != null)
+                {
+                    @confirmedTodo.Title
+                }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Lukk</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                    @onclick="() => RemoveTodo(confirmedTodo)">Slett</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 @code {
     [CascadingParameter]
@@ -51,6 +85,13 @@
     public EventCallback<Home.TodoItem> OnRemove { get; set; }
 
     private string newTodo = "";
+
+    private Home.TodoItem? confirmedTodo;
+
+    private void SetTodoToRemove(Home.TodoItem todo)
+    {
+        confirmedTodo = todo;
+    }
     private async Task AddTodo()
     {
         if (!string.IsNullOrWhiteSpace(newTodo))
