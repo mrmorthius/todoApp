@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PIjKHYMYNoK63Uz+IbQ0Kk+n0a46MNIz9lKtDKDfggTNXypLqF95+Yz/II2Ih6b8STjA0LqdSGhLcr2HREuKaQ==",
+  "dgSpecHash": "81bubkGjC/xID3DLZxKCXqE6nXswXPlqfOuKJgGjT5EY389FmBawImNYn7LsunZVBwdMmhHJ7y1vfjc6NFgjYQ==",
   "success": true,
-  "projectFilePath": "/Users/morten/Documents/Programmering/Skole/Emne 6/Arb2/Arb2.csproj",
+  "projectFilePath": "/Users/morten/Documents/Programmering/Skole/Emne 6/Arb3/Arb2.csproj",
   "expectedPackageFiles": [
     "/Users/morten/.nuget/packages/microsoft.aspnetcore.authorization/8.0.4/microsoft.aspnetcore.authorization.8.0.4.nupkg.sha512",
     "/Users/morten/.nuget/packages/microsoft.aspnetcore.components/8.0.4/microsoft.aspnetcore.components.8.0.4.nupkg.sha512",
