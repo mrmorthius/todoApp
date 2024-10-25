@@ -1,6 +1,45 @@
 ﻿@inherits LayoutComponentBase
+@inject AuthService AuthService;
 <div class="page">
     <main class="w-100 p-0 m-0">
+        <div class="container-fluid mb-3">
+            <div class="row">
+                <div class="col-12 bg-primary py-3 border-bottom border-dark border-opacity-1">
+                    <div class="d-flex justify-content-between">
+                        <span></span>
+                        <h1 class="text-light fw-normal text-center">Todo-applikasjon</h1>
+                        @if (@LoggedIn)
+                        {
+                            <a href="/logout" class="text-light align-self-center">Logg ut</a>
+                        }
+                        else
+                        {
+                            <a href="/login" class="text-light align-self-center">Logg inn</a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
         @Body
     </main>
 </div>
+
+@code {
+    private bool LoggedIn;
+
+    protected override async Task OnInitializedAsync()
+    {
+        LoggedIn = await AuthService.IsAuthenticated();
+        AuthService.OnAuthStateChanged += UpdateAuthState;
+    }
+
+    private void UpdateAuthState()
+    {
+        InvokeAsync(async () =>
+        {
+
+            LoggedIn = await AuthService.IsAuthenticated();
+            StateHasChanged();
+        });
+    }
+}

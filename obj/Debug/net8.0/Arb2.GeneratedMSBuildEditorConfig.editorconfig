@@ -13,35 +13,43 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = browser
 build_property.RootNamespace = Arb2
 build_property.RootNamespace = Arb2
-build_property.ProjectDir = /Users/morten/Documents/Programmering/Skole/Emne 6/Arb3/
+build_property.ProjectDir = /Users/morten/Documents/Programmering/Skole/Emne 6/Arb4/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = false
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/morten/Documents/Programmering/Skole/Emne 6/Arb3
+build_property.MSBuildProjectDirectory = /Users/morten/Documents/Programmering/Skole/Emne 6/Arb4
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/morten/Documents/Programmering/Skole/Emne 6/Arb3/App.razor]
+[/Users/morten/Documents/Programmering/Skole/Emne 6/Arb4/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/morten/Documents/Programmering/Skole/Emne 6/Arb3/Components/CompletedTodos.razor]
+[/Users/morten/Documents/Programmering/Skole/Emne 6/Arb4/Components/CompletedTodos.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Db21wbGV0ZWRUb2Rvcy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/morten/Documents/Programmering/Skole/Emne 6/Arb3/Components/Todos.razor]
+[/Users/morten/Documents/Programmering/Skole/Emne 6/Arb4/Components/Todos.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Ub2Rvcy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/morten/Documents/Programmering/Skole/Emne 6/Arb3/Pages/Home.razor]
+[/Users/morten/Documents/Programmering/Skole/Emne 6/Arb4/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSG9tZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/morten/Documents/Programmering/Skole/Emne 6/Arb3/_Imports.razor]
+[/Users/morten/Documents/Programmering/Skole/Emne 6/Arb4/Pages/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTG9naW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/morten/Documents/Programmering/Skole/Emne 6/Arb4/Pages/Logout.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTG9nb3V0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/morten/Documents/Programmering/Skole/Emne 6/Arb4/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/morten/Documents/Programmering/Skole/Emne 6/Arb3/Layout/MainLayout.razor]
+[/Users/morten/Documents/Programmering/Skole/Emne 6/Arb4/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L01haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-l4v3iggs5g

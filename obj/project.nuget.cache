@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "81bubkGjC/xID3DLZxKCXqE6nXswXPlqfOuKJgGjT5EY389FmBawImNYn7LsunZVBwdMmhHJ7y1vfjc6NFgjYQ==",
+  "dgSpecHash": "NFIJFfP9GOCV7kcjDSFV2kYzYm9amexvUxFO6iGAg+Rchpu8/pf9UJTtZqJZ2x0Q8mb7gnayMv16gzBUEYWzeQ==",
   "success": true,
-  "projectFilePath": "/Users/morten/Documents/Programmering/Skole/Emne 6/Arb3/Arb2.csproj",
+  "projectFilePath": "/Users/morten/Documents/Programmering/Skole/Emne 6/Arb4/Arb2.csproj",
   "expectedPackageFiles": [
+    "/Users/morten/.nuget/packages/blazored.localstorage/4.5.0/blazored.localstorage.4.5.0.nupkg.sha512",
     "/Users/morten/.nuget/packages/microsoft.aspnetcore.authorization/8.0.4/microsoft.aspnetcore.authorization.8.0.4.nupkg.sha512",
     "/Users/morten/.nuget/packages/microsoft.aspnetcore.components/8.0.4/microsoft.aspnetcore.components.8.0.4.nupkg.sha512",
     "/Users/morten/.nuget/packages/microsoft.aspnetcore.components.analyzers/8.0.4/microsoft.aspnetcore.components.analyzers.8.0.4.nupkg.sha512",
@@ -35,12 +36,5 @@
     "/Users/morten/.nuget/packages/system.text.json/8.0.0/system.text.json.8.0.0.nupkg.sha512",
     "/Users/morten/.nuget/packages/microsoft.netcore.app.runtime.mono.browser-wasm/8.0.4/microsoft.netcore.app.runtime.mono.browser-wasm.8.0.4.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1900",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Error occurred while getting package vulnerability data: Access to the path '/Users/morten/.local/share/NuGet/http-cache/670c1461c29885f9aa22c281d8b7da90845b38e4$ps:_api.nuget.org_v3_index.json/vuln_index.dat-new' is denied."
-    }
-  ]
+  "logs": []
 }
